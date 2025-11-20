@@ -90,10 +90,19 @@ export default function App() {
   const [roleDistribution, setRoleDistribution] = useState<Role[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Focus input on phase change
+  // Focus input and set default name on phase change
   useEffect(() => {
-    if (phase === GamePhase.PLAYER_REGISTRATION && inputRef.current) {
-      setTimeout(() => inputRef.current?.focus(), 100);
+    if (phase === GamePhase.PLAYER_REGISTRATION) {
+      // Set default name automatically
+      setTempName(`Giocatore ${currentPlayerIndex + 1}`);
+      
+      if (inputRef.current) {
+        setTimeout(() => {
+          inputRef.current?.focus();
+          // Select text to allow easy overwriting
+          inputRef.current?.select();
+        }, 100);
+      }
     }
   }, [phase, currentPlayerIndex]);
 
@@ -231,13 +240,9 @@ export default function App() {
     );
     
     setPlayers(updatedPlayers);
-
-    // Check win condition immediately after manual kill
-    const winRole = checkWinCondition(updatedPlayers);
-    if (winRole) {
-      setWinnerTeam(winRole);
-      setPhase(GamePhase.GAME_OVER);
-    }
+    
+    // REMOVED AUTOMATIC WIN CHECK FOR LIVE MODE
+    // Allows manual control of the game flow without forcing Game Over screen.
   };
 
   // --- VOTING LOGIC ---
@@ -312,7 +317,7 @@ export default function App() {
     setLastEliminatedPlayers(eliminated);
 
     if (eliminated.length > 0) {
-      // Check Win Conditions
+      // Check Win Conditions (Only for Voting Mode now)
       const winRole = checkWinCondition(updatedPlayers);
       if (winRole) {
         setWinnerTeam(winRole);
@@ -422,6 +427,7 @@ export default function App() {
 
           <div className="mt-8 pt-4 border-t border-white/5">
             <Button onClick={() => setShowSettings(false)} fullWidth variant="secondary">Chiudi</Button>
+            <p className="text-gray-600 text-[10px] mt-4 text-center uppercase tracking-widest">Versione 1.2</p>
           </div>
         </div>
       </div>
