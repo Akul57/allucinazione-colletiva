@@ -231,13 +231,9 @@ export default function App() {
     );
     
     setPlayers(updatedPlayers);
-
-    // Check win condition immediately after manual kill
-    const winRole = checkWinCondition(updatedPlayers);
-    if (winRole) {
-      setWinnerTeam(winRole);
-      setPhase(GamePhase.GAME_OVER);
-    }
+    
+    // REMOVED AUTOMATIC WIN CHECK FOR LIVE MODE
+    // Allows manual control of the game flow without forcing Game Over screen.
   };
 
   // --- VOTING LOGIC ---
@@ -312,7 +308,7 @@ export default function App() {
     setLastEliminatedPlayers(eliminated);
 
     if (eliminated.length > 0) {
-      // Check Win Conditions
+      // Check Win Conditions (Only for Voting Mode now)
       const winRole = checkWinCondition(updatedPlayers);
       if (winRole) {
         setWinnerTeam(winRole);
