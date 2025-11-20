@@ -2,11 +2,11 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://picsum.photos/32/32" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <!-- Icona personalizzata: Funghi Viola/Verdi con fumo su sfondo scuro -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' style='background-color:%23050505'%3E%3C!-- Smoke --%3E%3Cpath d='M20 25 Q 15 15 22 5 M44 20 Q 50 10 42 2' stroke='%23ffffff' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- Purple Mushroom --%3E%3Crect x='18' y='42' width='8' height='14' rx='2' fill='%23dddddd'/%3E%3Cpath d='M22 30 C 10 30 8 44 8 44 L 36 44 C 36 44 34 30 22 30 Z' fill='%23b026ff'/%3E%3C!-- Green Mushroom --%3E%3Crect x='40' y='38' width='8' height='18' rx='2' fill='%23dddddd'/%3E%3Cpath d='M44 26 C 32 26 30 40 30 40 L 58 40 C 58 40 56 26 44 26 Z' fill='%2339ff14'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' style='background-color:%23050505'%3E%3C!-- Smoke --%3E%3Cpath d='M20 25 Q 15 15 22 5 M44 20 Q 50 10 42 2' stroke='%23ffffff' stroke-width='2' fill='none' opacity='0.3'/%3E%3C!-- Purple Mushroom --%3E%3Crect x='18' y='42' width='8' height='14' rx='2' fill='%23dddddd'/%3E%3Cpath d='M22 30 C 10 30 8 44 8 44 L 36 44 C 36 44 34 30 22 30 Z' fill='%23b026ff'/%3E%3C!-- Green Mushroom --%3E%3Crect x='40' y='38' width='8' height='18' rx='2' fill='%23dddddd'/%3E%3Cpath d='M44 26 C 32 26 30 40 30 40 L 58 40 C 58 40 56 26 44 26 Z' fill='%2339ff14'/%3E%3C/svg%3E" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Allucinazione Collettiva</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,8 +18,8 @@
                 purple: '#b026ff',
                 green: '#39ff14',
                 red: '#ff073a',
-                blue: '#00f3ff',
-              },
+                blue: '#00f3ff'
+              }
             },
             animation: {
               'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -34,26 +34,23 @@
               fadeIn: {
                 '0%': { opacity: '0', transform: 'translateY(10px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-            },
-          },
-        },
-      };
+              }
+            }
+          }
+        }
+      }
     </script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap');
-
+      
       body {
         background-color: #050505;
         color: #ffffff;
         font-family: 'Roboto', sans-serif;
         overflow-x: hidden;
       }
-
-      h1,
-      h2,
-      h3,
-      .brand-font {
+      
+      h1, h2, h3, .brand-font {
         font-family: 'Orbitron', sans-serif;
       }
 
@@ -62,47 +59,27 @@
         width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #1a1a1a;
+        background: #1a1a1a; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #b026ff;
+        background: #b026ff; 
         border-radius: 3px;
       }
 
       /* Falling Mushrooms Animation */
       @keyframes fall {
-        0% {
-          top: -10%;
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          top: 110%;
-          opacity: 0;
-        }
+        0% { top: -10%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { top: 110%; opacity: 0; }
       }
-
+      
       @keyframes sway {
-        0% {
-          transform: translateX(0px) rotate(0deg);
-        }
-        25% {
-          transform: translateX(15px) rotate(5deg);
-        }
-        50% {
-          transform: translateX(-15px) rotate(-5deg);
-        }
-        75% {
-          transform: translateX(10px) rotate(3deg);
-        }
-        100% {
-          transform: translateX(0px) rotate(0deg);
-        }
+        0% { transform: translateX(0px) rotate(0deg); }
+        25% { transform: translateX(15px) rotate(5deg); }
+        50% { transform: translateX(-15px) rotate(-5deg); }
+        75% { transform: translateX(10px) rotate(3deg); }
+        100% { transform: translateX(0px) rotate(0deg); }
       }
 
       .mushroom-fall {
@@ -114,21 +91,21 @@
         pointer-events: none;
       }
     </style>
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://aistudiocdn.com/react@^19.2.0",
-          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-          "react/": "https://aistudiocdn.com/react@^19.2.0/",
-          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-          "vite": "https://aistudiocdn.com/vite@^7.2.4",
-          "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
-        }
-      }
-    </script>
-  </head>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>
