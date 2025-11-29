@@ -803,7 +803,7 @@ export default function App() {
                    <h3 className="text-white font-bold mb-2 flex items-center gap-2"><Users className="w-4 h-4 text-neon-blue" /> Ruoli</h3>
                    <ul className="space-y-3">
                      <li className="bg-gray-800/50 p-2 rounded-lg border border-white/5">
-                        <span className="text-neon-blue font-bold text-xs uppercase block mb-1">Cittadini</span>
+                        <span className="text-neon-blue font-bold text-xs uppercase block mb-1">Buoni</span>
                         <span className="text-xs">Parola "Normale". Vincono se eliminano l'Impostore.</span>
                      </li>
                      <li className="bg-gray-800/50 p-2 rounded-lg border border-white/5">
@@ -1508,7 +1508,7 @@ export default function App() {
       
       <h2 className="text-neon-purple text-sm font-bold tracking-[0.3em] uppercase mb-2">Vittoria</h2>
       <h1 className="text-5xl md:text-6xl font-black text-white brand-font mb-8 leading-tight">
-        {winnerTeam === Role.IMPOSTOR ? 'IMPOSTORE' : winnerTeam === Role.HALLUCINATED ? 'ALLUCINATI' : 'CITTADINI'}
+        {winnerTeam === Role.IMPOSTOR ? 'IMPOSTORE' : winnerTeam === Role.HALLUCINATED ? 'ALLUCINATI' : 'BUONI'}
       </h1>
 
       <div className="bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 w-full max-w-md mb-8">
