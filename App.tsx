@@ -2,10 +2,29 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { GameData, GamePhase, MIN_PLAYERS, MAX_PLAYERS, Player, Role, SavedGroup } from './types';
 import { generateGameScenario } from './services/geminiService';
 import { Button } from './components/Button';
-import { Users, Zap, Play, AlertTriangle, HelpCircle, Eye, EyeOff, UserPlus, ArrowRight, Settings, X, Lock, Vote, Trophy, Skull, Check, RefreshCw, BookOpen, Scale, Save, Trash2, Edit2, Download, Plus, Minus, Phone, RotateCcw, Ghost } from 'lucide-react';
+import { Users, Zap, Play, AlertTriangle, HelpCircle, Eye, EyeOff, UserPlus, ArrowRight, Settings, X, Lock, Vote, Trophy, Skull, Check, RefreshCw, BookOpen, Scale, Save, Trash2, Edit2, Download, Plus, Minus, Phone, RotateCcw } from 'lucide-react';
 
-// Use Ghost icon as the "Mushroom/Hallucination" icon
-const MushroomIcon = Ghost;
+// Custom Mushroom Icon
+const MushroomIcon = ({ className, style }: { className?: string, style?: React.CSSProperties }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+    style={style}
+  >
+    <path d="M18.6 15.2A7 7 0 1 0 5.4 15.2" />
+    <path d="M19 15.2v1.8c0 2.8-2.2 5-5 5H10c-2.8 0-5-2.2-5-5v-1.8" />
+    <path d="M10 22v-2" />
+    <path d="M14 22v-2" />
+  </svg>
+);
 
 // Background Animation Component - Memoized to prevent restart on state change
 const FallingMushrooms = React.memo(() => {
