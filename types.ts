@@ -1,3 +1,4 @@
+
 export enum Role {
   GOOD = 'BUONO',
   HALLUCINATED = 'ALLUCINATO',
@@ -19,6 +20,12 @@ export interface GameData {
   similarWord: string;
 }
 
+export interface SavedGroup {
+  id: string;
+  name: string;
+  playerNames: string[];
+}
+
 export enum GamePhase {
   SETUP = 'SETUP',
   LOADING = 'LOADING',
@@ -28,6 +35,7 @@ export enum GamePhase {
   PLAYING = 'PLAYING', // Main status screen
   VOTING_INTRO = 'VOTING_INTRO', // "Pass phone to X"
   VOTING_TURN = 'VOTING_TURN', // X selects who to eliminate
+  RUNOFF_INTRO = 'RUNOFF_INTRO', // "It's a tie!"
   ROUND_RESULTS = 'ROUND_RESULTS', // Show who died
   GAME_OVER = 'GAME_OVER',
 }
